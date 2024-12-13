@@ -1,0 +1,10 @@
+---
+- name: Tasks to run after webhook detected an event [EDA]
+  hosts: all
+  tasks:
+    - name: Debug message from AAP Controller   
+      ansible.builtin.debug:
+        msg: "( ansible_eda.event.payload.message | default( 'No message provided') }}"
+    - name: Debug Username from AAP Controller
+      ansible.builtin.debug:
+        msg: "( ansible_eda.event.payload.username | default( 'No username provided')
